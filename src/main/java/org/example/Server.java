@@ -13,11 +13,17 @@ public class Server {
 
         System.out.println("connection created.");
 
-        // receiving data
+        // receiving and printng data from client
         InputStreamReader isr = new InputStreamReader(socket.getInputStream());
         BufferedReader bf = new BufferedReader(isr);
 
         String str = bf.readLine();
         System.out.println("client: " + str);
+
+        // sending data to client
+        PrintWriter pr = new PrintWriter(socket.getOutputStream());
+        pr.println("Hello Hi!!!");
+        pr.flush();
+
     }
 }
